@@ -10,15 +10,19 @@
     <title>Document</title>
 </head>
 <body>
-    <main>
-        <div id="contenedor-calculadora" class="container contenedor-calculadora border-1 pt-2 pb-2 mt-4">
+    <main class="row d-flex justify-content-center">
+        <section id="contenedor-calculadora" class="container contenedor-calculadora border-1 pt-2 pb-2 mt-4 bg-danger row d-flex justify-content-center">
             <div id="operacion" class="container contenedor-calculadora--operacion text-end align-text-bottom">
 
             </div>
-            <div class="container contenedor-calculadora--visor text-end">
-                <p id="visor"></p>
+            <div class="container contenedor-calculadora--visor d-flex justify-content-end align-items-center">
+                <p id="visor" class="m-0 p-0"></p>
             </div>
-            <div class="container contenedor-calculadora--botonera row pt-2 text-center">
+            <div class="container contenedor-calculadora--botonera row pt-2 text-center bg-dark rounded-1 mt-2">
+                <i id="botonCompartir" class="col-3 contenedor-calculadora--botonera--boton-vacio fontSize-20"></i>
+                <i id="botonBorrar" class="col-3 contenedor-calculadora--botonera--boton bi bi-backspace fontSize-20"></i>
+                <i id="botonc" class="col-3 contenedor-calculadora--botonera--boton bi bi-c-circle fontSize-20"></i>
+                <i id="botonResto" class="col-3 contenedor-calculadora--botonera--boton bi bi-percent fontSize-20"></i>
                 <i id="boton7" class="col-3 contenedor-calculadora--botonera--boton bi bi-7-circle fontSize-20"></i>
                 <i id="boton8" class="col-3 contenedor-calculadora--botonera--boton bi bi-8-circle fontSize-20"></i>
                 <i id="boton9" class="col-3 contenedor-calculadora--botonera--boton bi bi-9-circle fontSize-20"></i>
@@ -31,13 +35,19 @@
                 <i id="boton2" class="col-3 contenedor-calculadora--botonera--boton bi bi-2-circle fontSize-20"></i>
                 <i id="boton3" class="col-3 contenedor-calculadora--botonera--boton bi bi-3-circle fontSize-20"></i>
                 <i id="botonMas" class="col-3 contenedor-calculadora--botonera--boton bi bi-plus-circle fontSize-20"></i>
-                <i id="botonc" class="col-3 contenedor-calculadora--botonera--boton bi bi-c-circle fontSize-20"></i>
+                <i id="botonPunto" class="col-3 contenedor-calculadora--botonera--boton bi bi-dot fontSize-20"></i>
                 <i id="boton0" class="col-3 contenedor-calculadora--botonera--boton bi bi-0-circle fontSize-20"></i>
                 <i id="botonIgual" class="col-3 contenedor-calculadora--botonera--boton bi bi-play-circle fontSize-20"></i>
                 <i id="botonDivision" class="col-3 contenedor-calculadora--botonera--boton bi bi-slash-circle fontSize-20"></i>
             </div>
+        </section>
+        <section class="container row d-flex justify-content-center mt-2 text-center">
+            <h3>Referencias (Teclas):</h3>
+            <p class="p-0 m-0"><strong>Escape:</strong> Borra todos los datos</p>
+            <p class="p-0 m-0"><strong>Backspace:</strong> Elimina el ultimo digito ingresado</p>
+            <p class="p-0 m-0"><strong>Enter:</strong> Resuelve la operacion</p>
+        </section>
 
-        </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
