@@ -1,8 +1,8 @@
 let calculo = {
-    numero1: 0,
-    numero2: 0,
+    numero1: 1,
+    numero2: null,
     operacion: '',
-    resultado: 0
+    resultado: null,
 }
 
 const isNumber = (numero) => {
@@ -36,6 +36,9 @@ const numero2 = (numero) => {
         case '/':
             calculo.resultado = calculo.numero1 / calculo.numero2;
             break
+        case '%':
+            calculo.resultado = calculo.numero1 % calculo.numero2;
+            break
     }
     const divOperacion = document.querySelector("#operacion")
     divOperacion.textContent = divOperacion.textContent + ` ${calculo.numero2}`;
@@ -45,8 +48,8 @@ const numero2 = (numero) => {
 
 const handleKeyPress = (event) => {
     console.log(event.key);
-    if (isNumber(Number(event.key)) && event.key!=' ') {
-        const visor = document.querySelector('#visor');
+    const visor = document.querySelector('#visor');
+    if (isNumber(Number(event.key)) && event.key!=' ' && calculo.numero2===null) {
         if (visor.textContent.length<=6) {
             visor.textContent=visor.textContent + event.key;
         }
@@ -56,9 +59,17 @@ const handleKeyPress = (event) => {
             case '-':
             case '/':
             case '*':
-                    if (calculo.operacion=='') {
+            case '%':
+                    if (calculo.operacion==='') {
                         numero1(Number(visor.textContent), event.key);
                         visor.textContent='';
+                    } else {
+                        if (calculo.numero2!==null) {
+                            numero1(Number(visor.textContent), event.key);
+                            visor.textContent='';
+                            calculo.numero2= null;
+                            calculo.resultado=null;
+                        }
                     }
                 break;
             case '=':
@@ -69,20 +80,25 @@ const handleKeyPress = (event) => {
             default:
                 break;
         }
-        console.log(false);
     }
 }
 
 const handleBackspace =(event) => {
-    if (event.key==='Backspace') {
+    if (event.key==='Escape') {
         calculo.numero1=0;
-        calculo.numero2=0;
+        calculo.numero2=null;
         calculo.operacion = '';
-        calculo.resultado = 0;
+        calculo.resultado = null;
         const visor = document.querySelector('#visor');
         visor.textContent = '';
         const operacion = document.querySelector('#operacion');
         operacion.textContent = '';
+    }
+    if (event.key==='Backspace') {
+        const visor = document.querySelector('#visor');
+        if (visor.textContent.length>0 && calculo.resultado===null) {
+            visor.textContent = visor.textContent.slice(0, -1);
+        }
     }
 }
 
@@ -184,6 +200,14 @@ botonDivision.addEventListener('click', () => {
     document.dispatchEvent(eventoKeyPress);
 });
 
+const botonResto = document.querySelector('#botonResto');
+botonResto.addEventListener('click', () => {
+    const tecla = '%';
+    const eventoKeyPress = new KeyboardEvent("keypress", { key: tecla});
+    document.dispatchEvent(eventoKeyPress);
+});
+
+
 const botonIgual = document.querySelector('#botonIgual');
 botonIgual.addEventListener('click', () => {
     const tecla = '=';
@@ -193,6 +217,13 @@ botonIgual.addEventListener('click', () => {
 
 const botonc = document.querySelector('#botonc');
 botonc.addEventListener('click', () => {
+    const tecla = 'Escape';
+    const eventoKeyPress = new KeyboardEvent("keydown", { key: tecla});
+    document.dispatchEvent(eventoKeyPress);
+});
+
+const botonBorrar = document.querySelector('#botonBorrar');
+botonBorrar.addEventListener('click', () => {
     const tecla = 'Backspace';
     const eventoKeyPress = new KeyboardEvent("keydown", { key: tecla});
     document.dispatchEvent(eventoKeyPress);
