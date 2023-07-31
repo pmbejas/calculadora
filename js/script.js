@@ -149,6 +149,13 @@ boton9.addEventListener('click', () => {
     document.dispatchEvent(eventoKeyPress);
 });
 
+const boton0 = document.querySelector('#boton0');
+boton0.addEventListener('click', () => {
+    const tecla = '0';
+    const eventoKeyPress = new KeyboardEvent("keypress", { key: tecla});
+    document.dispatchEvent(eventoKeyPress);
+});
+
 const botonMas = document.querySelector('#botonMas');
 botonMas.addEventListener('click', () => {
     const tecla = '+';
