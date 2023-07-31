@@ -1,0 +1,33 @@
+.contenedor-calculadora {
+    background-color: black;
+    color: white;
+    width: 300px;
+    border-radius: 5px;
+}
+
+.contenedor-calculadora--visor {
+    background-color: white;
+    color: blue;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.contenedor-calculadora--operacion {
+    height: 30px;
+    
+}
+.contenedor-calculadora--botonera--boton {
+    padding: 10px;
+    text-align: center;
+    width: calc(100%/5);
+    margin: 5px calc((100%/5)/9);
+    border-radius: 50%;
+    border: solid 1px white;
+    transition: all .4s ease-in-out;
+}
+
+.contenedor-calculadora--botonera--boton:hover {
+    background-color: gray;
+    color: black;
+    cursor: pointer;
+}
