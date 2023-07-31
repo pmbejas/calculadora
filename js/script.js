@@ -47,7 +47,6 @@ const numero2 = (numero) => {
 }
 
 const handleKeyPress = (event) => {
-    console.log(event.key);
     const visor = document.querySelector('#visor');
     if (isNumber(Number(event.key)) && event.key!=' ' && calculo.numero2===null) {
         if (visor.textContent.length<=10) {
