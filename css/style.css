@@ -34,3 +34,16 @@
 .fontSize-20 {
     font-size: 30px;
 }
+
+.pie-de-pagina {
+    background-color: rgb(7, 0, 36);
+    color: whitesmoke;
+}
+
+.pie-de-pagina--texto {
+    font-size: .8rem;
+}
+
+.pie-de-pagina--logo-utn {
+    width: 20px;
+}
